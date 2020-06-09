@@ -317,7 +317,7 @@ fu! unicode#GetUniChar(...) abort "{{{2
         " set locale to english
         let lang=v:lang
         if lang isnot# 'C'
-            sil lang mess C
+            silent! lang messages C
         endif
         " Get char at Cursor, need to use redir, cause we also want
         " to capture combining chars
@@ -381,7 +381,7 @@ fu! unicode#GetUniChar(...) abort "{{{2
         let start      = 1
         let s:output_width=1
         if exists('lang') && lang !=# 'C'
-            exe "sil lang mess" lang
+            exe "silent! lang messages" lang
         endif
         for val in msg
             let list = matchlist(val, '^\(' . "'[^']*'". '\)\(.*\)')
